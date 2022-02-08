@@ -1,5 +1,6 @@
 class Trie {
 
+    // Also check deleting a word frrom trie, was asked in instabase
     private Node root;
     
     public Trie() {
