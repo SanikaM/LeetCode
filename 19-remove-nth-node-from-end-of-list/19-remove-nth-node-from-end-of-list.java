@@ -20,8 +20,7 @@ class Solution {
         }
         count++;
         System.out.println("count "+count);
-        if(head.next == null)
-            return head.next;
+       
         
         iter = head;
         for(int i=0;i<(count-n);i++)
