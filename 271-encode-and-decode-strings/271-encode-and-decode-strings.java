@@ -17,7 +17,7 @@ public class Codec {
         
         List<String> result = new ArrayList<>();
         String arr[] = s.split(" # ",-1);
-        for(int i=0;i<arr.length-1;++i)
+        for(int i=0;i<arr.length-1;i++)
         {
             result.add(arr[i].replace("##","#"));
         }
