@@ -10,7 +10,7 @@ class Solution {
         freq.addAll(map.values());
         Collections.sort(freq);
         System.out.println(freq);
-        int counter = 0;
+       
         int result =0;
         for(Integer i : freq ){
            if(i>=k && k>0)
@@ -24,7 +24,7 @@ class Solution {
                 i=0;
                 
             }
-            counter++;
+          
             if(i > 0)
                 result++;
                 
