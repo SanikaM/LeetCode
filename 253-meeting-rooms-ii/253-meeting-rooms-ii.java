@@ -1,7 +1,7 @@
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
         
-        if(intervals.length == 0 || intervals[0].length == 0) return 0;
+          if(intervals.length == 0 || intervals[0].length == 0) return 0;
         
         int[] starts = new int[intervals.length];
         int[] ends = new int[intervals.length];
@@ -20,6 +20,5 @@ class Solution {
                 endsItr++;
         }
         return rooms;
-        
     }
 }
