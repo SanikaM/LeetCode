@@ -35,7 +35,7 @@ class Solution {
                 int newPoint = current + j;
                 
                 if(newPoint > n*n)
-                    continue;
+                    break;
                 
                 if(hm.get(newPoint) != -1)
                     newPoint = hm.get(newPoint);
