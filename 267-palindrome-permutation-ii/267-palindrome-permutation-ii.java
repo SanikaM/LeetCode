@@ -1,5 +1,9 @@
 class Solution {
     public List<String> generatePalindromes(String s) {
+        
+        /*
+        How come we are not getting duplicates with this code ?
+        */
         List<String> res = new ArrayList<>();
         int[] map = new int[256];
         
@@ -58,4 +62,6 @@ class Solution {
 4. If the length of the generated temp string == given string, add it to result and return
 5. recursive call to all the map characters, where you create teh string by adding odd character in center and the two chars at both sides. 
 6. Add the map count again because we want to calculet the permutations. 
+
+
 */
