@@ -49,3 +49,12 @@ class Solution {
         }
     }
 }
+
+
+/*
+1. Calculate chr freq
+2. Find the single odd char and keep in middle of temp string
+3. call helper function
+4. If the length of the generated temp string == given string, add it to result and return
+5. recursive call to all the map characters, where you create teh string by adding odd character in center and the two chars at both sides. 
+*/
