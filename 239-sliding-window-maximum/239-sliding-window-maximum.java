@@ -2,9 +2,6 @@ class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         
         int start = 0;
-        int end = k-1;
-        int result = 0;
-        
         Deque<Integer> deq = new LinkedList<Integer>();
         
         int[] r = new int[nums.length-k+1]; 
@@ -24,10 +21,12 @@ class Solution {
                
                 r[c++] = deq.peekFirst();
                 
+                
                 if(nums[start] == deq.getFirst())
                     deq.pollFirst();
                 
                 start++;
+
             }
         }
         
