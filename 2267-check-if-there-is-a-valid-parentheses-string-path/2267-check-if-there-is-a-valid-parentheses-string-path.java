@@ -11,17 +11,7 @@ class Solution {
         this.grid = grid;
         memo = new HashMap<>();
 
-        // basic case: the path should start with '(' and end with ')'
-        if (grid[0][0] != '(' || grid[m - 1][n - 1] != ')') {
-            return false;
-        }
-
-        // basic case: the count of value in the path should be even.
-        // so m+n should be odd
-        if ((m + n) % 2 == 0) {
-            return false;
-        }
-
+        
         // dfs
         return traverse(0, 0, 0);
     }
