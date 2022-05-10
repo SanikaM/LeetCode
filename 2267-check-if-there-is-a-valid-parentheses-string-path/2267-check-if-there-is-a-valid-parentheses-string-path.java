@@ -1,72 +1,45 @@
 class Solution {
-    private int m;
-    private int n;
-    private char[][] grid;
-    private Map<String, Boolean> memo;
-
-
+    public Map<String, Boolean> map;
+    
     public boolean hasValidPath(char[][] grid) {
-        m = grid.length;
-        n = grid[0].length;
-        this.grid = grid;
-        memo = new HashMap<>();
 
+        map = new HashMap<>();
+                
+        return dfs(0,0,grid,0);
+    }
+    
+    private boolean dfs(int i, int j, char[][] grid, int openCount) {
         
-        // dfs
-        return traverse(0, 0, 0);
-    }
-
-
-    private boolean traverse(int i, int j, int count) {
-        if (i >= m || j >= n) {
+        if(i<0 || i >= grid.length || j<0 || j>=grid[0].length) 
             return false;
-        }
-
-        // calculate the number of '('
+        
         char c = grid[i][j];
-        if (c == '(') {
-            count++;
-        } else {
-            // when encounter with ')', offset one '('
-            count--;
-        }
-
-        // arrive the end position
-        if (i == m - 1 && j == n - 1) {
-            // perfect pair
-            if (count == 0) {
+        if(c == '(')
+            openCount++;
+        else
+            openCount--;
+        
+        if(i == grid.length-1 && j == grid[0].length-1)
+        {
+            if(openCount == 0)
                 return true;
-            }
+            
         }
-
-        // if count < 0, the path will start with ')', illegal.
-        // if count > (m + n - 1) / 2, there would be no enough ')' left to offset the '('
-        if (count < 0 || count > (m + n - 1) / 2) {
+        
+        if(openCount <0 || openCount > ((grid.length + grid[0].length -1)/2 ))
             return false;
+        
+        String str = Integer.toString(i) +'*'+Integer.toString(j)+'*'+Integer.toString(openCount);
+        
+        if(map.containsKey(str)) {
+           // System.out.println("I am in");
+            return map.get(str);
         }
-
-        // check the memo
-        String key = generateKey(i, j, count);
-        if (memo.containsKey(key)) {
-            return memo.get(key);
-        }
-
-        // traverse next position. right or down.
-        boolean ans = traverse(i, j + 1, count) || traverse(i + 1, j, count);
-        // add to memo
-        memo.put(key, ans);
-        return ans;
-    }
-
-    /**
-     * generate some kind of key. we use '-' to split elements here.
-     *
-     * @param i
-     * @param j
-     * @param currentCount
-     * @return
-     */
-    private String generateKey(int i, int j, int currentCount) {
-        return i + "-" + j + "-" + currentCount;
+        
+        
+            map.put(str, dfs(i+1,j,grid,openCount) || dfs(i,j+1,grid,openCount));
+       
+        
+        return map.get(str);
     }
 }
