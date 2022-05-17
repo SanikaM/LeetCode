@@ -14,8 +14,8 @@ class Solution {
         }
         
         int max = 0;
-        for (int c: dp) {
-            max = Math.max(max, c);
+        for (int d: dp) {
+            max = Math.max(max, d);
         }
         
         return max;
