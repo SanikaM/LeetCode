@@ -1,11 +1,15 @@
-public class Solution {
+class Solution {
     public boolean hasPath(int[][] maze, int[] start, int[] destination) {
+     
         boolean[][] visited = new boolean[maze.length][maze[0].length];
-        int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
-        Queue < int[] > queue = new LinkedList < > ();
+        Queue<int[]> queue = new LinkedList<>();
+        int[][] dirs = {{0,1}, {0,-1}, {-1,0},{1,0}};
+        
         queue.add(start);
         visited[start[0]][start[1]] = true;
-        while (!queue.isEmpty()) {
+        
+        while(!queue.isEmpty()) {
+            
             int[] s = queue.remove();
             if (s[0] == destination[0] && s[1] == destination[1])
                 return true;
