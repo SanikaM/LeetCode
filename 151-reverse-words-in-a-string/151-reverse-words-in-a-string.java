@@ -8,11 +8,9 @@ class Solution {
         
         for(int i=arr.length-1;i>=0;i--) {
             
-            arr[i] = arr[i].trim();
-            //System.out.println("#"+arr[i]+"#");
-            if(arr[i] != null)
+           
             sb.append(arr[i]);
-            System.out.println("#"+sb+"#");
+           
             if(i>0)
                 sb.append(" ");
         }
